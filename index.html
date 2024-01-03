@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Are You Going to See Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #question {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        #idk {
+            animation: moveButton 0.5s forwards;
+        }
+
+        @keyframes moveButton {
+            to {
+                transform: translate(calc(100% * random()), calc(100% * random()));
+            }
+        }
+
+        #message {
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #congrats {
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <h1>When are you going to give me the Gawk Gawk 3000?</h1>
+    <img src='https://el.phncdn.com/gif/15936402.gif' alt='sucking dick'>
+    <p id="question">Choose an option:</p>
+    <div id="buttons">
+        <button class="btn" id="today">Today</button>
+        <button class="btn" id="idk">I don't know</button>
+    </div>
+    <p id="message">Did you mean to press <span id="congrats">Today</span>? Press it to continue.</p>
+    <script>
+        const idkButton = document.getElementById('idk');
+        const todayButton = document.getElementById('today');
+        const message = document.getElementById('message');
+        let fontSize = 18; // Initial font size
+
+        idkButton.addEventListener('click', () => {
+            idkButton.style.animation = 'moveButton 0.5s forwards';
+            fontSize += 4; // Increase font size by 4px each time
+            message.style.fontSize = `${fontSize}px`;
+            message.style.display = 'block';
+        });
+
+        todayButton.addEventListener('click', () => {
+            message.style.display = 'none';
+            alert('Congratulations! This is now legally binding.');
+        });
+    </script>
+</body>
+</html>
+
